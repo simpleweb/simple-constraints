@@ -1,6 +1,6 @@
 module Simpleweb
   module Constraints
-    class SubDomain
+    class Subdomain
       attr_reader :tld_size
       attr_reader :reserved_subdomains
 

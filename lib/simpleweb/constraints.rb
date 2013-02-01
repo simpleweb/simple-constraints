@@ -1,1 +1,1 @@
-require 'simpleweb/constraints/sub_domain'
+require 'simpleweb/constraints/subdomain'
