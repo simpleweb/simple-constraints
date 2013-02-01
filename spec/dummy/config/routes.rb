@@ -1,4 +1,9 @@
 Dummy::Application.routes.draw do
+
+  constraints Simpleweb::Constraints::Subdomain do
+    get :test, to: 'pages#index'
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
