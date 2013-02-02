@@ -1,3 +1,7 @@
+require 'simplecov'
+SimpleCov.start do
+  add_filter 'spec'
+end
 # Configure Rails Environment
 ENV["RAILS_ENV"] = "test"
 
