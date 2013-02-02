@@ -7,14 +7,14 @@ require "simpleweb/version"
 Gem::Specification.new do |s|
   s.name        = "simpleweb"
   s.version     = Simpleweb::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Simpleweb."
-  s.description = "TODO: Description of Simpleweb."
+  s.authors     = ["Chris Mytton"]
+  s.email       = ["chrism@simpleweb.co.uk"]
+  s.homepage    = "https://github.com/simpleweb/simpleweb-toolkit"
+  s.summary     = "Simpleweb Rails utilities"
+  s.description = "Adds routing constraints and model validations to the host application"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.files = Dir["lib/**/*"] + ["Rakefile", "README.md"]
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", "~> 3.2.11"
 end
