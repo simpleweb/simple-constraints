@@ -1,10 +1,5 @@
 module Simpleweb
   module Constraints
-
-    def subdomain(*args, &block)
-      constraints Subdomain.new(*args), &block
-    end
-
     # Extension to the Rails router for matching subdomains.
     #
     # You can either use the `:only` option, which accepts a string or an
