@@ -5,6 +5,31 @@ module Simpleweb
       constraints Subdomain.new(*args), &block
     end
 
+    # Extension to the Rails router for matching subdomains.
+    #
+    # You can either use the `:only` option, which accepts a string or an
+    # array of strings, to only match a particular set of subdomains, or an
+    # `:expect` option (also accepts string or array of strings), which will
+    # match all subdomains except the ones given.
+    #
+    # You can also give a `:tld_length` option, which configures the top
+    # level domain size (1 for .com, 2 for .co.uk etc).
+    #
+    # ## Example
+    #
+    #     My::Application.routes.draw do
+    #       subdomain only: 'blog' do
+    #         resources :posts
+    #       end
+    #
+    #       subdomain except: ['www', 'mail'] do
+    #         resources :spaces
+    #         root to: 'spaces#index'
+    #       end
+    #
+    #       root to: 'pages#home'
+    #     end
+    #
     class Subdomain
       attr_reader :tld_length
       attr_reader :except
@@ -12,12 +37,14 @@ module Simpleweb
 
       # Create a new Subdomain constraint.
       #
-      # @param [Integer] tld_length The number of sections after the subdomain.
-      # @param [Array] reserved_subdomains Reserved Subdomains
+      # @param [Hash] options The options to configure the constraint.
+      # @option options [Integer] :tld_length (1) The top level domain size.
+      # @option options [String|Array] :only ([]) Only match these subdomains
+      # @option options [String|Array] :except ([]) Don't match these subdomains
       def initialize(options = {})
         @tld_length = options[:tld_length] || 1
-        @except = Array(options[:except])
         @only = Array(options[:only])
+        @except = Array(options[:except])
       end
 
       # Does the request match the constraint.
