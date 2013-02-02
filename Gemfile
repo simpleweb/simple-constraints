@@ -16,6 +16,12 @@ gem "jquery-rails"
 # To use debugger
 # gem 'debugger'
 
+group :development do
+  gem 'sqlite3'
+  gem 'yard'
+  gem 'redcarpet'
+end
+
 group :test do
   gem 'rspec-rails'
   gem 'simplecov', require: false
