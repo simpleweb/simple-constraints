@@ -39,7 +39,7 @@ The `subdomain` constraint allow you to specify routes that should only
 be applied for certain subdomains. The `:only` option will only match
 the subdomains given, the `:except` option won't match the given
 subdomains. There is also a `:tld_length` (should be `1` for `.com`, `2`
-for `.co.uk` etc).
+for `.co.uk` etc) which defaults to 1.
 
 ```ruby
 My::Application.routes.draw do
