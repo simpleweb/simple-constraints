@@ -1,5 +1,10 @@
 module Simpleweb
   module Constraints
+
+    def subdomain(*args, &block)
+      constraints Simpleweb::Constraints::Subdomain.new(*args), &block
+    end
+
     class Subdomain
       attr_reader :tld_length
       attr_reader :exclude
