@@ -18,4 +18,13 @@ describe "routing to subdomains" do
       )
     end
   end
+
+  describe "with a reserved subdomain" do
+    it "routes to application#subdomain" do
+      expect(:get => "http://www.example.com/").to route_to(
+        :controller => "application",
+        :action => "index"
+      )
+    end
+  end
 end
