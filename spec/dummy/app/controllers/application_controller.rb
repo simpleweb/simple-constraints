@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
   def subdomain
     render nothing: true
   end
+
+  def blog
+    render nothing: true
+  end
 end

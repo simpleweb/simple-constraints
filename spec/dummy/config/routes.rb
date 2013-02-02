@@ -1,5 +1,10 @@
 Dummy::Application.routes.draw do
-  subdomain except: ['www'] do
+
+  subdomain only: 'blog' do
+    root to: 'application#blog'
+  end
+
+  subdomain except: 'www' do
     root to: 'application#subdomain'
   end
 

@@ -8,6 +8,7 @@ module Simpleweb
     class Subdomain
       attr_reader :tld_length
       attr_reader :except
+      attr_reader :only
 
       # Create a new Subdomain constraint.
       #
@@ -15,14 +16,23 @@ module Simpleweb
       # @param [Array] reserved_subdomains Reserved Subdomains
       def initialize(options = {})
         @tld_length = options[:tld_length] || 1
-        @except = options[:except] || []
+        @except = Array(options[:except])
+        @only = Array(options[:only])
       end
 
       # Does the request match the constraint.
       #
-      # @param [Rack::Request] request The request to test for a match.
+      # @param [ActionDispatch::Request] request The request to test for a match.
       def matches?(request)
-        request.subdomain(tld_length).present? && !except.include?(request.subdomains.first)
+        subdomain = request.subdomain(tld_length)
+        if subdomain.present?
+          if only.present?
+            return only.include?(subdomain)
+          end
+
+          return !except.include?(subdomain)
+        end
+        false
       end
     end
   end

@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+# @see spec/dummy/config/routes.rb
+
 describe "routing to subdomains" do
   describe "without a subdomain" do
     it "routes to application#index" do
@@ -19,11 +21,20 @@ describe "routing to subdomains" do
     end
   end
 
-  describe "with a reserved subdomain" do
-    it "routes to application#subdomain" do
+  describe ":except" do
+    it "routes to application#index" do
       expect(:get => "http://www.example.com/").to route_to(
         :controller => "application",
         :action => "index"
+      )
+    end
+  end
+
+  describe ":only" do
+    it "matches the given subdomain" do
+      expect(:get => "http://blog.example.com/").to route_to(
+        :controller => "application",
+        :action => "blog"
       )
     end
   end
