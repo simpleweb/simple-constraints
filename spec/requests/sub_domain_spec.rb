@@ -7,6 +7,6 @@ describe "Subdomain requests" do
 
   it "matches when on a subdomain" do
     get '/test'
-    response.status.should == 200
+    expect(response.status).to eq 200
   end
 end
