@@ -45,6 +45,9 @@ module Simpleweb
 
       # Does the request match the constraint.
       #
+      # The `:only` option from {#initialize} takes precedence, if it's present, then the
+      # `:except` option is ignored.
+      #
       # @param [ActionDispatch::Request] request The request to test for a match.
       def matches?(request)
         subdomain = request.subdomain(tld_length)
