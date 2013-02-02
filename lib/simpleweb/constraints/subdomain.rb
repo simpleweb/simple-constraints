@@ -31,10 +31,6 @@ module Simpleweb
     #     end
     #
     class Subdomain
-      attr_reader :tld_length
-      attr_reader :except
-      attr_reader :only
-
       # Create a new Subdomain constraint.
       #
       # @param [Hash] options The options to configure the constraint.
@@ -61,6 +57,12 @@ module Simpleweb
         end
         false
       end
+
+      private
+
+      attr_reader :tld_length
+      attr_reader :except
+      attr_reader :only
     end
   end
 end
