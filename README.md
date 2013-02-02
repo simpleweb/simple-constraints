@@ -12,9 +12,7 @@ And then execute:
 
     $ bundle
 
-## Usage
-
-### Model validations
+## Model validations
 
 To use model validations include `Simpleweb::Validations` in your model.
 
@@ -29,11 +27,11 @@ class User < ActiveRecord::Base
 end
 ```
 
-### Routing constraints
+## Routing constraints
 
 Routing constraints are automatically included in the Rails router.
 
-#### Subdomain
+### Subdomain
 
 The `subdomain` constraint allow you to specify routes that should only
 be applied for certain subdomains. The `:only` option will only match
