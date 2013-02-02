@@ -1,6 +1,5 @@
 Dummy::Application.routes.draw do
-
-  constraints Simpleweb::Constraints::Subdomain.new(1, ['www']) do
+  subdomain exclude: ['www'] do
     root to: 'application#subdomain'
   end
 
