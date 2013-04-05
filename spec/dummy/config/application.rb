@@ -8,7 +8,7 @@ require 'active_resource/railtie'
 require 'sprockets/railtie'
 
 Bundler.require
-require "simpleweb"
+require "simple"
 
 module Dummy
   class Application < Rails::Application

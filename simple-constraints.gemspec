@@ -6,7 +6,7 @@ require "simple/constraints/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "simple-constraints"
-  s.version     = Simpleweb::VERSION
+  s.version     = Simple::Constraints::VERSION
   s.authors     = ["Chris Mytton", "Paul Springett"]
   s.email       = ["paul@simpleweb.co.uk"]
   s.homepage    = "https://github.com/simpleweb/simple-constraints"
