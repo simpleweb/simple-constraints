@@ -1,3 +1,4 @@
+require 'simple/constraints/version'
 require 'simple/constraints/subdomain'
 
 module Simple
@@ -7,3 +8,5 @@ module Simple
     end
   end
 end
+
+require 'simple/constraints/railtie' if defined?(Rails)
