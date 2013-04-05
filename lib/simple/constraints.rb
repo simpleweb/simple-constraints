@@ -1,6 +1,6 @@
-require 'simpleweb/constraints/subdomain'
+require 'simple/constraints/subdomain'
 
-module Simpleweb
+module Simple
   module Constraints
     def subdomain(*args, &block)
       constraints Subdomain.new(*args), &block
