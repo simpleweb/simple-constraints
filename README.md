@@ -1,35 +1,16 @@
-# Simpleweb
+# Simple Constraints
 
-A collection of useful classes for use with Rails.
+Routing constraints are automatically included in the Rails router.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'simpleweb', git: 'git@github.com:simpleweb/simpleweb-toolkit.git'
+    gem 'simple-constraints'
 
 And then execute:
 
     $ bundle
-
-## Model validations
-
-To use model validations include `Simpleweb::Validations` in your model.
-
-```ruby
-class User < ActiveRecord::Base
-  include Simpleweb::Validations
-
-  attr_accessible :email, :username
-
-  validates :email, presence: true, email: true
-  validates :username, presence: true, username: true
-end
-```
-
-## Routing constraints
-
-Routing constraints are automatically included in the Rails router.
 
 ### Subdomain
 

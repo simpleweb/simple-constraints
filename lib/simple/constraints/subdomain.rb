@@ -1,4 +1,4 @@
-module Simpleweb
+module Simple
   module Constraints
     # Extension to the Rails router for matching subdomains.
     #
