@@ -8,5 +8,9 @@ Dummy::Application.routes.draw do
     root to: 'application#subdomain', as: :www_root
   end
 
+  ip_address '81.184.116.14' do
+    root to: 'application#admin', as: :ip_addr_root
+  end
 
+  root to: 'application#index'
 end

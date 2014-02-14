@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
   def blog
     render nothing: true
   end
+
+  def admin
+    render nothing: true
+  end
 end
