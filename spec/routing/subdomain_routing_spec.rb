@@ -3,6 +3,8 @@ require 'spec_helper'
 # @see spec/dummy/config/routes.rb
 
 describe "routing to subdomains" do
+  before { stub_remote_ip('1.1.1.1') }
+
   describe "without a subdomain" do
     it "routes to application#index" do
       expect(:get => "http://example.com/").to route_to(
