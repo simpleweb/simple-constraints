@@ -35,6 +35,38 @@ My::Application.routes.draw do
 end
 ```
 
+### IP Address
+
+The `ip_address` constraint allow you to specify a single IP address or a range
+of IP addresses using a netmask to constrain routes by. Localhost requests can
+be allowed as an option `allow_localhost: true`
+
+```ruby
+My::Application.routes.draw do
+  # Single IP address
+  ip_address '81.184.116.14' do
+    namespace :admin do
+      resources :users
+    end
+  end
+
+  # IP address range (netmask)
+  ip_address '81.184.116.0/26' do
+    resources :secrets
+  end
+
+  # Allow local addresses
+  ip_address '81.184.116.0/26', allow_localhost: true do
+    resources :secrets
+  end
+
+  # Use with a mounted Rails Engine
+  mount ResqueWeb::Engine => '/resque', constraints: ip_address('81.187.116.0/26')
+
+  root to: 'pages#home'
+end
+```
+
 ## Contributing
 
 1. Fork it
